@@ -1,0 +1,67 @@
+{"timestamp":"2025-01-11T13:01:01.148Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:01:01.152Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:01:01.156Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:01:19.323Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:01:19.325Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:01:19.326Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:01:44.647Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:01:44.649Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:05:37.517Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:05:37.518Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:05:37.519Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:05:56.293Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:05:56.295Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:05:56.295Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:06:26.409Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:06:26.411Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:06:26.411Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:13:54.374Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:13:54.376Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:13:54.377Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:14:44.224Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:14:44.225Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:14:44.226Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:15:36.433Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:15:36.434Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:15:36.434Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:19:03.549Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:03.553Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:50.196Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:50.199Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:52.382Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:52.384Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:56.110Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:56.113Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:58.488Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:58.491Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:59.513Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:19:59.516Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:21:01.639Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:21:01.641Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:21:36.471Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:21:36.472Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:21:44.148Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T13:21:44.149Z","data":"POST /login"}
+{"timestamp":"2025-01-11T13:21:44.149Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T13:21:44.163Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:21:44.165Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:22:08.287Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:22:08.289Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:22:23.950Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:22:23.952Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:53:15.401Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:53:15.404Z","data":"GET /users"}
+{"timestamp":"2025-01-11T13:54:05.772Z","data":"OPTIONS /users"}
+{"timestamp":"2025-01-11T13:54:05.773Z","data":"OPTIONS /users"}
+{"timestamp":"2025-01-11T14:09:51.526Z","data":"GET /auth-check"}
+{"timestamp":"2025-01-11T14:09:51.530Z","data":"GET /auth-check"}
+{"timestamp":"2025-01-11T14:10:00.477Z","data":"OPTIONS /login"}
+{"timestamp":"2025-01-11T14:10:00.478Z","data":"POST /login"}
+{"timestamp":"2025-01-11T14:10:00.478Z","data":"User login: admin@sklep.pl"}
+{"timestamp":"2025-01-11T14:10:19.540Z","data":"OPTIONS /users"}
+{"timestamp":"2025-01-11T14:10:19.542Z","data":"GET /auth-check"}
+{"timestamp":"2025-01-11T14:10:19.542Z","data":"OPTIONS /users"}
+{"timestamp":"2025-01-11T14:10:19.544Z","data":"GET /auth-check"}
+{"timestamp":"2025-01-11T14:13:18.744Z","data":"OPTIONS /users"}
+{"timestamp":"2025-01-11T14:14:24.928Z","data":"GET /orders"}
+{"timestamp":"2025-01-11T14:14:24.930Z","data":"GET /orders"}

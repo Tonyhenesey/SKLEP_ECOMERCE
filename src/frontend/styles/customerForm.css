@@ -1,0 +1,23 @@
+.customer-form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.customer-form-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background: #28a745;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}

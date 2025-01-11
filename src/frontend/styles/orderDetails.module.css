@@ -1,0 +1,25 @@
+.orderDetailsContainer {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.productList {
+    list-style: none;
+}
+
+.productItem {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deleteButton {
+    background-color: red;
+    padding: 5px 10px;
+}

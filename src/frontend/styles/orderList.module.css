@@ -1,0 +1,29 @@
+.orderContainer {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.orderList {
+    list-style: none;
+}
+
+.orderItem {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.orderItem:last-child {
+    border-bottom: none;
+}
+
+.searchBar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
