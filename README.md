@@ -3,7 +3,7 @@ Aplikacja do zarządzania klientami i zamówieniami.
 
 ## 📌 Wymagania
 - Node.js
-- MySQL
+- MySQL Workbench
 
 ## 🚀 Instalacja
 1. Skopiuj repozytorium
