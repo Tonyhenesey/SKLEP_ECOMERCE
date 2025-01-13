@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getCustomerById, updateCustomer } from "../services/customerService";
+import "../styles/customerDetails.css";
 
 const CustomerDetails = ({ customerId, onClose }) => {
     const [customer, setCustomer] = useState(null);
@@ -30,10 +31,10 @@ const CustomerDetails = ({ customerId, onClose }) => {
     if (!customer) return <p>⏳ Ładowanie danych klienta...</p>;
 
     return (
-        <div>
+        <div className="customer-details-container">
             <h2>👤 Szczegóły Klienta</h2>
-            {error && <p style={{ color: "red" }}>❌ {error}</p>}
-            {message && <p style={{ color: "green" }}>{message}</p>}
+            {error && <p className="error-message">❌ {error}</p>}
+            {message && <p className="success-message">{message}</p>}
 
             <form onSubmit={handleUpdate}>
                 <input type="text" name="name" value={customer.name} onChange={handleChange} required />
@@ -42,10 +43,10 @@ const CustomerDetails = ({ customerId, onClose }) => {
                 <input type="email" name="email" value={customer.email} onChange={handleChange} required />
                 <input type="date" name="birthDate" value={customer.birthDate} onChange={handleChange} required />
                 <input type="text" name="address" value={customer.address} onChange={handleChange} required />
-                <button type="submit">💾 Zapisz zmiany</button>
+                <button type="submit" className="update-button">💾 Zapisz zmiany</button>
             </form>
 
-            <button onClick={onClose} style={{ marginTop: "10px" }}>🔙 Powrót do listy</button>
+            <button onClick={onClose} className="back-button">🔙 Powrót do listy</button>
         </div>
     );
 };

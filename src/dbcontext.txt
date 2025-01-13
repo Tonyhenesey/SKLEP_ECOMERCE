@@ -1,0 +1,196 @@
+CREATE DATABASE sklep;
+
+
+
+
+-- Tworzenie tabeli użytkowników
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'employee') NOT NULL
+);
+
+-- Tworzenie tabeli klientów
+CREATE TABLE customers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    surname VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    birthDate DATE NOT NULL,
+    address VARCHAR(255) NOT NULL
+);
+
+-- Tworzenie tabeli zamówień
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customerId INT NOT NULL,
+    orderDate DATETIME DEFAULT NOW(),
+    address VARCHAR(255) NOT NULL,
+    status ENUM('Nowe', 'W realizacji', 'Zrealizowane') NOT NULL,
+    FOREIGN KEY (customerId) REFERENCES customers(id) ON DELETE CASCADE
+);
+
+-- Tworzenie tabeli produktów
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL
+);
+
+-- Tworzenie tabeli produktów w zamówieniach (relacja wiele do wielu)
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orderId INT NOT NULL,
+    productId INT NOT NULL,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    FOREIGN KEY (orderId) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (productId) REFERENCES products(id) ON DELETE CASCADE
+);
+CREATE TABLE user_logs (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+-- Dodanie użytkowników
+INSERT INTO users (name, email, password, role) VALUES
+('Admin', 'admin@sklep.pl', 'admin123', 'admin'),
+('Pracownik', 'pracownik@sklep.pl', 'pracownik123', 'employee');
+
+-- Dodanie klientów
+INSERT INTO customers (name, surname, phone, email, birthDate, address) VALUES
+('Jan', 'Kowalski', '123456789', 'jan@wp.pl', '1990-05-15', 'Warszawa'),
+('Anna', 'Nowak', '987654321', 'anna@wp.pl', '1985-11-25', 'Kraków');
+
+-- Dodanie produktów
+INSERT INTO products (name, price, stock) VALUES
+('Laptop', 2999.99, 10),
+('Telefon', 1999.99, 15),
+('Monitor', 799.99, 8);
+
+-- Dodanie zamówień
+INSERT INTO orders (customerId, address, status) VALUES
+(1, 'Warszawa', 'Nowe'),
+(2, 'Kraków', 'W realizacji');
+
+-- Przypisanie produktów do zamówień
+INSERT INTO order_items (orderId, productId, quantity) VALUES
+(1, 1, 1),
+(1, 2, 2),
+(2, 3, 1);
+INSERT INTO products (name, price, stock) VALUES
+('Tablet', 1499.99, 20),
+('Drukarka', 699.99, 12),
+('Klawiatura mechaniczna', 349.99, 30),
+('Mysz gamingowa', 199.99, 25),
+('Głośniki Bluetooth', 499.99, 15),
+('Telewizor 55"', 3299.99, 8),
+('Słuchawki bezprzewodowe', 699.99, 18),
+('Powerbank 10000mAh', 149.99, 40),
+('Smartwatch', 899.99, 10),
+('Kamera internetowa', 299.99, 12),
+('Laptop Gamingowy', 5999.99, 7),
+('Router WiFi 6', 349.99, 20),
+('Zegarek sportowy Garmin', 1299.99, 15),
+('Mikrofon studyjny', 499.99, 12),
+('Kamera sportowa 4K', 999.99, 10),
+('SSD 1TB NVMe', 799.99, 25),
+('Dysk HDD 4TB', 499.99, 18),
+('Procesor Intel i9', 2199.99, 8),
+('Płyta główna ASUS', 999.99, 12),
+('Monitor 27" 144Hz', 1499.99, 14),
+('Zasilacz 750W modularny', 429.99, 10),
+('Fotel gamingowy', 899.99, 9),
+('Karta graficzna RTX 4070', 3499.99, 5),
+('Drukarka laserowa', 899.99, 6),
+('Ekspres do kawy', 1199.99, 10),
+('Mysz ergonomiczna', 249.99, 30),
+('Słuchawki studyjne', 799.99, 12),
+('Tablet graficzny', 1299.99, 7),
+('Gimbal do smartfona', 699.99, 11),
+('Kamera bezpieczeństwa WiFi', 449.99, 20);
+
+INSERT INTO customers (name, surname, phone, email, birthDate, address) VALUES
+('Adam', 'Kowalski', '600123456', 'adam.kowalski@mail.com', '1990-02-15', 'Warszawa'),
+('Monika', 'Nowak', '601987654', 'monika.nowak@mail.com', '1988-09-22', 'Kraków'),
+('Piotr', 'Wiśniewski', '602345678', 'piotr.wisniewski@mail.com', '1992-04-10', 'Gdańsk'),
+('Agnieszka', 'Dąbrowska', '603456789', 'agnieszka.dabrowska@mail.com', '1995-11-05', 'Łódź'),
+('Tomasz', 'Lewandowski', '604567890', 'tomasz.lewandowski@mail.com', '1986-07-30', 'Wrocław'),
+('Ewa', 'Zielińska', '605678901', 'ewa.zielinska@mail.com', '1989-03-18', 'Poznań'),
+('Robert', 'Szymański', '606789012', 'robert.szymanski@mail.com', '1991-05-25', 'Szczecin'),
+('Magdalena', 'Wójcik', '607890123', 'magdalena.wojcik@mail.com', '1984-10-07', 'Bydgoszcz'),
+('Kamil', 'Kamiński', '608901234', 'kamil.kaminski@mail.com', '1993-08-12', 'Lublin'),
+('Joanna', 'Kaczmarek', '609012345', 'joanna.kaczmarek@mail.com', '1987-01-29', 'Białystok'),
+('Marek', 'Mazur', '610234567', 'marek.mazur@mail.com', '1996-06-17', 'Rzeszów'),
+('Karolina', 'Pawlak', '611345678', 'karolina.pawlak@mail.com', '1983-12-01', 'Toruń'),
+('Łukasz', 'Kubiak', '612456789', 'lukasz.kubiak@mail.com', '1994-09-05', 'Radom'),
+('Paweł', 'Sikora', '613567890', 'pawel.sikora@mail.com', '1997-04-22', 'Opole'),
+('Dominika', 'Król', '614678901', 'dominika.krol@mail.com', '1985-07-14', 'Gdynia'),
+('Michał', 'Witkowski', '615789012', 'michal.witkowski@mail.com', '1990-02-10', 'Zielona Góra'),
+('Anna', 'Jankowska', '616890123', 'anna.jankowska@mail.com', '1998-11-03', 'Kielce'),
+('Sebastian', 'Zawadzki', '617901234', 'sebastian.zawadzki@mail.com', '1982-05-20', 'Olsztyn'),
+('Patrycja', 'Piotrowska', '618012345', 'patrycja.piotrowska@mail.com', '1995-08-29', 'Gliwice'),
+('Grzegorz', 'Dudek', '619123456', 'grzegorz.dudek@mail.com', '1986-03-11', 'Zabrze'),
+('Alicja', 'Kołodziej', '620234567', 'alicja.kolodziej@mail.com', '1999-07-24', 'Sosnowiec'),
+('Maciej', 'Borkowski', '621345678', 'maciej.borkowski@mail.com', '1983-10-15', 'Częstochowa'),
+('Natalia', 'Czarnecka', '622456789', 'natalia.czarnecka@mail.com', '1991-12-09', 'Elbląg'),
+('Bartłomiej', 'Adamski', '623567890', 'bartlomiej.adamski@mail.com', '1984-06-06', 'Legnica'),
+('Katarzyna', 'Matuszewska', '624678901', 'katarzyna.matuszewska@mail.com', '1993-09-28', 'Chorzów'),
+('Daniel', 'Maciejewski', '625789012', 'daniel.maciejewski@mail.com', '1987-11-19', 'Kalisz'),
+('Barbara', 'Błaszczyk', '626890123', 'barbara.blaszczyk@mail.com', '1996-02-14', 'Koszalin'),
+('Wojciech', 'Gajewski', '627901234', 'wojciech.gajewski@mail.com', '1989-05-02', 'Jastrzębie-Zdrój'),
+('Aleksandra', 'Marciniak', '628012345', 'aleksandra.marciniak@mail.com', '1992-03-07', 'Płock'),
+('Jakub', 'Cieślak', '629123456', 'jakub.cieslak@mail.com', '1985-08-11', 'Gorzów Wielkopolski');
+
+INSERT INTO orders (customerId, address, status) VALUES
+(1, 'Warszawa', 'Nowe'),
+(2, 'Kraków', 'W realizacji'),
+(3, 'Gdańsk', 'Zrealizowane'),
+(4, 'Poznań', 'Nowe'),
+(5, 'Wrocław', 'W realizacji'),
+(6, 'Łódź', 'Nowe'),
+(7, 'Katowice', 'W realizacji'),
+(8, 'Gdynia', 'Nowe'),
+(9, 'Szczecin', 'Zrealizowane'),
+(10, 'Lublin', 'W realizacji');
+
+
+INSERT INTO orders (customerId, address, status) VALUES
+
+
+(8, 'Szczecin', 'W realizacji'),
+(9, 'Bydgoszcz', 'Zrealizowane'),
+(10, 'Lublin', 'Nowe'),
+(11, 'Białystok', 'W realizacji'),
+(12, 'Rzeszów', 'Nowe'),
+(13, 'Toruń', 'Zrealizowane'),
+(14, 'Radom', 'W realizacji'),
+(15, 'Opole', 'Nowe'),
+(16, 'Gdynia', 'Zrealizowane'),
+(17, 'Zielona Góra', 'Nowe'),
+(18, 'Kielce', 'W realizacji'),
+(19, 'Olsztyn', 'Nowe'),
+(20, 'Gliwice', 'Zrealizowane'),
+(21, 'Zabrze', 'Nowe'),
+(22, 'Sosnowiec', 'W realizacji'),
+(23, 'Częstochowa', 'Nowe'),
+(24, 'Elbląg', 'Zrealizowane'),
+(25, 'Legnica', 'W realizacji'),
+(26, 'Chorzów', 'Nowe'),
+(27, 'Kalisz', 'Zrealizowane'),
+(28, 'Koszalin', 'Nowe'),
+(29, 'Jastrzębie-Zdrój', 'W realizacji'),
+(30, 'Płock', 'Nowe'),
+(31, 'Gorzów Wielkopolski', 'Zrealizowane'),
+(32, 'Warszawa', 'Nowe'),
+(33, 'Poznań', 'W realizacji'),
+(34, 'Kraków', 'Nowe'),
+(35, 'Wrocław', 'Zrealizowane');
+
+
+
+select * from customers

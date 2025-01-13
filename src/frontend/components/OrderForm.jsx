@@ -38,7 +38,7 @@ const OrderForm = ({ refreshOrders }) => {
                 setAddress("");
                 setStatus("Nowe");
                 setProducts([]);
-                refreshOrders(); // 🔄 Odśwież listę zamówień
+                refreshOrders();
             }
         } catch (error) {
             setMessage("❌ Błąd serwera!");

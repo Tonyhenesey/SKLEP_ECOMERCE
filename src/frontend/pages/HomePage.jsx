@@ -1,27 +1,26 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../styles/homePage.css"; // Import CSS
 
-const HomePage = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
+const HomePage = ({ user }) => {
     const navigate = useNavigate();
 
-    const handleLogout = () => {
-        localStorage.removeItem("user");
-        navigate("/");
-    };
-
     return (
-        <div>
-            <h1>🏠 Strona Główna</h1>
-            <nav>
-                <Link to="/orders">📦 Zamówienia</Link> |
-                <Link to="/customers">👥 Klienci</Link> |
-                <Link to="/stock">🏪 Magazyn</Link>
+        <div className="home-container">
+            <h1 className="home-title">🏠 Strona Główna</h1>
+            <p className="welcome-message">
+                Witaj! Wybierz jedną z poniższych sekcji, aby zarządzać aplikacją.
+            </p>
+            <nav className="home-nav">
+                <button className="home-nav-button" onClick={() => navigate("/customers")}>👥 Klienci</button>
+                <button className="home-nav-button" onClick={() => navigate("/orders")}>📦 Zamówienia</button>
+                <button className="home-nav-button" onClick={() => navigate("/stock")}>🏬 Magazyn</button>
                 {user?.role === "admin" && (
-                    <> | <Link to="/logs">📜 Logi logowań</Link></>
+                    <button className="home-nav-button admin-button" onClick={() => navigate("/logs")}>
+                        📑 Logi
+                    </button>
                 )}
             </nav>
-            <button onClick={handleLogout}>🚪 Wyloguj</button>
         </div>
     );
 };

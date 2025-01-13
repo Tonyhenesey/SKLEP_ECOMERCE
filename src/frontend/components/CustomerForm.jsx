@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createCustomer } from "../services/customerService";
+import "../styles/customerForm.css";
 
 const CustomerForm = ({ onCustomerAdded }) => {
     const [customer, setCustomer] = useState({
@@ -21,7 +22,7 @@ const CustomerForm = ({ onCustomerAdded }) => {
         if (response.customerId) {
             alert("✅ Klient dodany!");
             setCustomer({ name: "", surname: "", phone: "", email: "", birthDate: "", address: "" });
-            onCustomerAdded(); // Odświeżenie listy klientów
+            onCustomerAdded();
         } else {
             alert("❌ Błąd podczas dodawania klienta!");
         }
@@ -37,7 +38,7 @@ const CustomerForm = ({ onCustomerAdded }) => {
                 <input type="email" name="email" placeholder="Email" value={customer.email} onChange={handleChange} required />
                 <input type="date" name="birthDate" value={customer.birthDate} onChange={handleChange} required />
                 <input type="text" name="address" placeholder="Adres" value={customer.address} onChange={handleChange} required />
-                <button type="submit">✔️ Dodaj Klienta</button>
+                <button type="submit" className="add-button">✔️ Dodaj Klienta</button>
             </form>
         </div>
     );

@@ -1,4 +1,4 @@
-.order-list-container {
+.stock-container {
     max-width: 900px;
     margin: 30px auto;
     padding: 20px;
@@ -9,11 +9,12 @@
     text-align: center;
 }
 
-h2 {
+h1 {
     color: #ffcc00;
     margin-bottom: 20px;
 }
 
+/* 🔍 Search Bar */
 .search-bar-container {
     display: flex;
     justify-content: center;
@@ -54,51 +55,46 @@ h2 {
     transform: scale(1.05);
 }
 
-.order-list {
-    list-style: none;
-    padding: 0;
+/* 📦 Tabela produktów */
+.stock-table-container {
     margin-top: 20px;
+    overflow-x: auto;
 }
 
-.order-item {
-    background: #1f4068;
-    padding: 15px;
-    margin: 10px 0;
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    color: black;
     border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stock-table th {
+    background: #007bff;
     color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease-in-out;
-    cursor: pointer;
+    padding: 12px;
+    text-align: left;
 }
 
-.order-item:hover {
-    background: #16213e;
-    transform: scale(1.02);
+.stock-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
 }
 
-.order-id {
+.stock-table tr:hover {
+    background: #f1f1f1;
+}
+
+/* 🚫 Brak wyników */
+.no-results {
+    text-align: center;
+    padding: 20px;
     font-weight: bold;
-    color: #ffcc00;
+    color: red;
 }
 
-.order-name {
-    flex: 2;
-}
-
-.order-status {
-    flex: 1;
-    font-weight: bold;
-    color: #28a745;
-}
-
-.order-address {
-    flex: 2;
-    font-style: italic;
-}
-
+/* 🔹 Paginacja */
 .pagination {
     display: flex;
     justify-content: center;

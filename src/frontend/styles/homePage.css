@@ -1,0 +1,63 @@
+/* Główny kontener */
+.home-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #1e212b, #272b37);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efekt hover na kontenerze */
+.home-container:hover {
+    transform: scale(1.02);
+}
+
+/* Tytuł strony głównej */
+.home-title {
+    font-size: 32px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Wiadomość powitalna */
+.welcome-message {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+/* Nawigacja */
+.home-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Przyciski nawigacyjne */
+.home-nav-button {
+    padding: 15px 25px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efekt hover na przyciskach */
+.home-nav-button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}

@@ -19,7 +19,7 @@ const AddProductForm = ({ refreshStock }) => {
             alert("⛔ Wystąpił błąd: " + result.error);
         } else {
             alert("✅ Produkt dodany!");
-            refreshStock(); // Odśwież stan magazynowy po dodaniu
+            refreshStock();
             setName("");
             setPrice("");
             setStock("");

@@ -5,15 +5,15 @@ import styles from "../styles/orderDetails.module.css";
 const OrderDetails = ({ orderId, onClose }) => {
     const [order, setOrder] = useState(null);
     const [newAddress, setNewAddress] = useState("");
-    const [loading, setLoading] = useState(true);  // Stan ładowania
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (orderId) {
-            setLoading(true);  // Ustawiamy ładowanie na true
+            setLoading(true);
             getOrderById(orderId).then(data => {
                 console.log("📜 Szczegóły zamówienia:", data);
                 setOrder(data);
-                setLoading(false);  // Po pobraniu danych wyłączamy ładowanie
+                setLoading(false);
             }).catch(error => {
                 console.error("⛔ Błąd pobierania zamówienia:", error);
                 setLoading(false);
@@ -29,26 +29,19 @@ const OrderDetails = ({ orderId, onClose }) => {
         return <p>⚠️ Zamówienie nie znalezione!</p>;
     }
 
-    const handleChangeAddress = async () => {
-        if (newAddress.trim() === "") {
-            alert("❌ Adres nie może być pusty!");
-            return;
-        }
-
-        const result = await updateOrder(order.id, newAddress);
-
-        if (!result.error) {
-            setOrder(prev => ({ ...prev, address: newAddress }));
-            alert("✅ Adres zaktualizowany!");
-        } else {
-            alert("❌ Błąd aktualizacji zamówienia!");
+    const handleChangeAddress = () => {
+        if (newAddress.trim()) {
+            updateOrder({ id: order.id, address: newAddress }).then(() => {
+                setOrder(prev => ({ ...prev, address: newAddress }));
+                setNewAddress("");
+            });
         }
     };
 
     const handleCancelOrder = () => {
         cancelOrder(order.id).then((response) => {
             if (!response.error) {
-                setOrder(prev => ({ ...prev, status: "Anulowane" })); // Aktualizujemy status na froncie
+                setOrder(prev => ({ ...prev, status: "Anulowane" }));
             }
         });
     };

@@ -19,7 +19,7 @@ export const getOrderById = async (orderId) => {
         const data = await response.json();
         console.log("✅ Otrzymane szczegóły zamówienia:", data);
 
-        // 🔹 Upewniamy się, że `data` zawiera poprawne zamówienie
+
         if (!data || Object.keys(data).length === 0) {
             console.warn("⚠️ API zwróciło pusty obiekt lub null!");
             return null;
@@ -32,18 +32,13 @@ export const getOrderById = async (orderId) => {
     }
 };
 
-
-export const updateOrder = async (orderId, address) => {
+export const updateOrder = async (order) => {
     try {
-        const response = await fetch(`${API_URL}/orders/${orderId}/address`, {
+        const response = await fetch(`${API_URL}/orders/${order.id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ address }),  // 🔹 Wysyłamy tylko `address`
+            body: JSON.stringify(order),
         });
-
-        if (!response.ok) {
-            throw new Error(`Błąd serwera: ${response.status}`);
-        }
 
         return await response.json();
     } catch (error) {
@@ -51,7 +46,6 @@ export const updateOrder = async (orderId, address) => {
         return { error: "Nie udało się zaktualizować zamówienia" };
     }
 };
-
 
 export const cancelOrder = async (orderId) => {
     try {

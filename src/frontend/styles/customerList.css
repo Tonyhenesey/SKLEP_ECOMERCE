@@ -1,4 +1,4 @@
-.order-list-container {
+.customer-list-container {
     max-width: 900px;
     margin: 30px auto;
     padding: 20px;
@@ -54,13 +54,13 @@ h2 {
     transform: scale(1.05);
 }
 
-.order-list {
+.customer-list {
     list-style: none;
     padding: 0;
     margin-top: 20px;
 }
 
-.order-item {
+.customer-item {
     background: #1f4068;
     padding: 15px;
     margin: 10px 0;
@@ -74,27 +74,21 @@ h2 {
     cursor: pointer;
 }
 
-.order-item:hover {
+.customer-item:hover {
     background: #16213e;
     transform: scale(1.02);
 }
 
-.order-id {
+.customer-id {
     font-weight: bold;
     color: #ffcc00;
 }
 
-.order-name {
+.customer-name {
     flex: 2;
 }
 
-.order-status {
-    flex: 1;
-    font-weight: bold;
-    color: #28a745;
-}
-
-.order-address {
+.customer-email {
     flex: 2;
     font-style: italic;
 }
